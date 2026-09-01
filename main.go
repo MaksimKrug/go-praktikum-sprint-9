@@ -21,7 +21,7 @@ func generateRandomElements(size int) []int {
 
 	nums := make([]int, size)
 	for i := range nums {
-		nums[i] = rand.Intn(SIZE)
+		nums[i] = rand.Int()
 	}
 	return nums
 }
@@ -69,8 +69,7 @@ func maxChunks(data []int) int {
 		chunk := data[start:end]
 		go func() {
 			defer wg.Done()
-			maximumChunk := maximum(chunk)
-			maximumChunks[i] = maximumChunk
+			maximumChunks[i] = maximum(chunk)
 		}()
 
 	}
